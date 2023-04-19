@@ -6,3 +6,5 @@
 ## Output
  - Diameter of wire bundle (cable) and organization of wires inside bundle.
  - Visualization of solution.
+## Limitations
+ - Primitive error handling - NaN Bundle Diameter indicates unsuccessful input file parsing or failure to find a solution.
