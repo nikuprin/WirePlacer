@@ -14,7 +14,7 @@
                 <ActivityIndicator IsRunning="{Binding Loading}"
                                    Margin="0,12,12,0" />
             </HorizontalStackLayout>
-            <HorizontalStackLayout>
+            <HorizontalStackLayout HeightRequest="350">
                 <Frame BorderColor="Gray"
                        CornerRadius="5"
                        Padding="8"
@@ -26,22 +26,21 @@
                         <BoxView Color="Gray"
                                  HeightRequest="2"
                                  HorizontalOptions="Fill" />
-                        <HorizontalStackLayout>
-                            <Label Text="Bundle Diameter:"
-                                   Margin="10,5"
+                        <HorizontalStackLayout Margin="10,10,10,5">
+                            <Label Text="Bundle Diameter"
                                    FontSize="Medium"
                                    FontAttributes="Bold" />
                             <Label
                                 Text="{Binding WireBundle.Diameter,
                                     StringFormat='{0:F2} mm'}"
                                 FontSize="Medium"
-                                Margin="10,5" />
+                                Margin="20,0,0,0" />
                         </HorizontalStackLayout>
                         <Label Text="Inner Arrangement"
-                               Margin="10,5"
+                               Margin="10,0,0,5"
                                FontSize="Medium"
                                FontAttributes="Bold" />
-                        <HorizontalStackLayout>
+                        <HorizontalStackLayout BackgroundColor="Gray">
                             <Label Text="Radius"
                                    Margin="10,0,0,0"
                                    FontSize="Medium"
