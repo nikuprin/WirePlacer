@@ -1,18 +1,18 @@
-﻿using Circle = WirePlacer.Models.Circle;
+﻿using WirePlacer.Models;
 using Point = WirePlacer.Models.Point;
 
 namespace WirePlacer.Solvers;
 
 /// <summary>
-/// Solves circle packing problem using one pass approach.
-/// Inspiration source:
-/// https://stackoverflow.com/questions/3851668/position-n-circles-of-different-radii-inside-a-larger-circle-without-overlapping
+///     Solves circle packing problem using one pass approach.
+///     Inspiration source:
+///     https://stackoverflow.com/questions/3851668/position-n-circles-of-different-radii-inside-a-larger-circle-without-overlapping
 /// </summary>
 public static class CirclesInCirclePacking
 {
     internal static List<Circle> PackCircles(IList<double> radii)
     {
-        using var basePoints = BasePoints(0.1, 0.1, 1000).GetEnumerator();
+        using var basePoints = BasePoints(0.01, 0.1, 1000).GetEnumerator();
         var freePoints = new List<Point>();
         var sortedRadii = new List<double>(radii);
         sortedRadii.Sort();

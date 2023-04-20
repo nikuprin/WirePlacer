@@ -3,11 +3,11 @@
 namespace WirePlacer.Drawables;
 
 /// <summary>
-/// Draws wire bundle - organization of wires inside a bundle.
+///     Draws wire bundle - organization of wires inside a bundle.
 /// </summary>
 public class WireBundleVisualization : IDrawable
 {
-    private WireBundle wireBundle;
+    private readonly WireBundle wireBundle;
 
     public WireBundleVisualization(WireBundle wireBundle)
     {
@@ -30,7 +30,7 @@ public class WireBundleVisualization : IDrawable
         // inner
         canvas.StrokeColor = Colors.Blue;
         canvas.StrokeSize = 3;
-        foreach(var wire in wireBundle.Wires)
+        foreach (var wire in wireBundle.Wires)
         {
             var x = Convert.ToSingle(wire.Center.X * scale + centerX);
             var y = Convert.ToSingle(wire.Center.Y * scale + centerY);

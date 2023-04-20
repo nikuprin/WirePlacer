@@ -4,7 +4,7 @@ using WirePlacer.Models;
 namespace WirePlacer.Services;
 
 /// <summary>
-/// Service for visualizing wire bundle solution.
+///     Service for visualizing wire bundle solution.
 /// </summary>
 public class SolutionVisualizer : ISolutionVisualizer
 {

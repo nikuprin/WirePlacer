@@ -3,7 +3,7 @@
 namespace WirePlacer.Services;
 
 /// <summary>
-/// Service for parsing input data.
+///     Service for parsing input data.
 /// </summary>
 public class InputDataReader : IInputDataReader
 {

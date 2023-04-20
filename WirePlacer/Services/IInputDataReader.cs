@@ -1,5 +1,4 @@
-﻿using System;
-namespace WirePlacer.Services;
+﻿namespace WirePlacer.Services;
 
 public interface IInputDataReader
 {

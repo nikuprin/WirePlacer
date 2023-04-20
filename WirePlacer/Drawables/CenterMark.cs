@@ -1,7 +1,7 @@
 ﻿namespace WirePlacer.Drawables;
 
 /// <summary>
-/// Draws center mark in the middle of the canvas.
+///     Draws center mark in the middle of the canvas.
 /// </summary>
 public class CenterMark : IDrawable
 {

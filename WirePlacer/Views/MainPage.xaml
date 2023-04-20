@@ -1,20 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:WirePlacer.ViewModels"
-             x:Class="WirePlacer.Views.MainPage"
-             >
+             x:Class="WirePlacer.Views.MainPage">
     <ScrollView>
         <VerticalStackLayout VerticalOptions="Start">
             <HorizontalStackLayout Spacing="25"
                                    HorizontalOptions="Start">
-                <Button Text="Pick Input File And Find Solution"
+                <Button Text="Start"
                         Command="{Binding FindSolution}"
-                        WidthRequest="300"
                         Margin="12,12,12,0"
-                        FontSize="Medium"/>
+                        FontSize="Medium" />
                 <ActivityIndicator IsRunning="{Binding Loading}"
-                                   Margin="0,12,12,0"/>
+                                   Margin="0,12,12,0" />
             </HorizontalStackLayout>
             <HorizontalStackLayout>
                 <Frame BorderColor="Gray"
@@ -30,72 +28,75 @@
                                  HorizontalOptions="Fill" />
                         <HorizontalStackLayout>
                             <Label Text="Bundle Diameter:"
-                                   Margin="5,10"
+                                   Margin="10,5"
                                    FontSize="Medium"
-                                   FontAttributes="Bold"/>
-                            <Label Text="{Binding WireBundle.Diameter,
+                                   FontAttributes="Bold" />
+                            <Label
+                                Text="{Binding WireBundle.Diameter,
                                     StringFormat='{0:F2} mm'}"
-                                   FontSize="Medium"
-                                   Margin="5,10"/>
+                                FontSize="Medium"
+                                Margin="10,5" />
                         </HorizontalStackLayout>
-                        
+                        <Label Text="Inner Arrangement"
+                               Margin="10,5"
+                               FontSize="Medium"
+                               FontAttributes="Bold" />
+                        <HorizontalStackLayout>
+                            <Label Text="Radius"
+                                   Margin="10,0,0,0"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   WidthRequest="90" />
+                            <Label Text="X"
+                                   Margin="10,0,0,0"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   WidthRequest="90" />
+                            <Label Text="Y"
+                                   Margin="10,0,0,0"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   WidthRequest="100" />
+                        </HorizontalStackLayout>
                         <CollectionView ItemsSource="{Binding WireBundle.Wires}"
-                                WidthRequest="300"
-                                HeightRequest="400">
-                        <CollectionView.Header>
-                            <HorizontalStackLayout BackgroundColor="LightGray">
-                                <Label Text="Radii"
-                                       Margin="10,0,0,0"
-                                       FontSize="Medium"
-                                       FontAttributes="Bold"
-                                       WidthRequest="90"/>
-                                <Label Text="Center X"
-                                       Margin="10,0,0,0"
-                                       FontSize="Medium"
-                                       FontAttributes="Bold"
-                                       WidthRequest="90"/>
-                                <Label Text="Center Y"
-                                       Margin="10,0,0,0"
-                                       FontSize="Medium"
-                                       FontAttributes="Bold"
-                                       WidthRequest="100"/>
-                            </HorizontalStackLayout>
-                        </CollectionView.Header>
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="100" />
-                                        <ColumnDefinition Width="100" />
-                                        <ColumnDefinition Width="100" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0"
-                                           Grid.Row="0"
-                                           Text="{Binding Radius, StringFormat='{0:F2}'}"
-                                           FontSize="Medium"
-                                           HorizontalOptions="Start"/>
-                                    <Label Grid.Column="1"
-                                           Grid.Row="0"
-                                           Text="{Binding Center.X, StringFormat='{0:F2}'}"
-                                           FontSize="Medium"/>
-                                    <Label Grid.Column="2"
-                                           Grid.Row="0"
-                                           Text="{Binding Center.Y, StringFormat='{0:F2}'}"
-                                           FontSize="Medium"/>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                </CollectionView>
-
+                                        WidthRequest="300"
+                                        HorizontalOptions="Start" Margin="10,5">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="100" />
+                                            <ColumnDefinition Width="100" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0"
+                                               Grid.Row="0"
+                                               Text="{Binding Radius, StringFormat='{0:F2}'}"
+                                               FontSize="Medium"
+                                               HorizontalOptions="Start" />
+                                        <Label Grid.Column="1"
+                                               Grid.Row="0"
+                                               Text="{Binding Center.X, StringFormat='{0:F2}'}"
+                                               FontSize="Medium" />
+                                        <Label Grid.Column="2"
+                                               Grid.Row="0"
+                                               Text="{Binding Center.Y, StringFormat='{0:F2}'}"
+                                               FontSize="Medium" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </StackLayout>
                 </Frame>
                 <Frame BorderColor="Gray"
                        CornerRadius="5"
                        Padding="8"
-                       Margin="8">
+                       Margin="8"
+                       MinimumHeightRequest="400"
+                       WidthRequest="400">
                     <StackLayout>
                         <Label Text="Wire Bundle Solution Visualization"
                                FontSize="Large"
@@ -104,12 +105,13 @@
                                  HorizontalOptions="Fill" />
                         <GraphicsView Drawable="{Binding SolutionVisualization}"
                                       HeightRequest="300"
-                                      WidthRequest="400"/>
+                                      WidthRequest="400"
+                                      VerticalOptions="Center"
+                                      HorizontalOptions="Center" />
 
                     </StackLayout>
                 </Frame>
             </HorizontalStackLayout>
-            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

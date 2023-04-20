@@ -1,5 +1,4 @@
-﻿using System.Windows.Input;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using WirePlacer.Models;
 
 namespace WirePlacer.ViewModels;
@@ -11,5 +10,4 @@ public interface IMainViewModel
     bool Loading { get; }
     string Msg { get; }
     WireBundle WireBundle { get; }
-
 }
