@@ -2,13 +2,16 @@
 
 public readonly struct Point
 {
+    public static readonly Point Invalid = new(0, 0, true);
     public double X { get; }
     public double Y { get; }
+    private bool invalid { get; }
 
-    public Point(double x, double y)
+    public Point(double x, double y, bool invalid = false)
     {
         X = x;
         Y = y;
+        this.invalid = invalid;
     }
 
     public Point Subtract(Point p)

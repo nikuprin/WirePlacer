@@ -20,17 +20,12 @@ public static class CirclesInCirclePacking
         var circles = new List<Circle>();
         foreach (var radius in sortedRadii)
         {
-            var pointToPop = new object();
-            foreach (var freePoint in freePoints.Where(freePoint => circles.IsSpaceForNewCircle(freePoint, radius)))
+            // to check if we can fit new circle between existing ones
+            var freePoint = freePoints.FirstOrDefault(p => circles.IsSpaceForNewCircle(p, radius));
+            if (freePoint.Equals(Point.Invalid))
             {
                 circles.Add(new Circle(freePoint, radius));
-                pointToPop = freePoint;
-                break;
-            }
-
-            if (pointToPop is Point p)
-            {
-                freePoints.Remove(p);
+                freePoints.Remove(freePoint);
                 continue;
             }
 
